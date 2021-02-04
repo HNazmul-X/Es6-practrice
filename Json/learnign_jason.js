@@ -1,16 +1,16 @@
-// fetch("https://jsonplaceholder.typicode.com/users")
-//   .then((response) => response.json())
-//   .then((json) => getUserName(json));
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((json) => getUserName(json));
 
-// function getUserName(json){
-//     const userName = json.map(e=> e.username)
-//     console.log('userName', userName)
+function getUserName(json){
+    const userName = json.map(e=> e.username)
+    console.log('userName', userName)
 
-//     const userNameContainer = document.querySelector(".user-name-container");
-//     let userNameList = document.createElement('li')
-//     userNameList.innerHTML= userName;
-//     userNameContainer.appendChild(userNameList)
-// }
+    const userNameContainer = document.querySelector(".user-name-container");
+    let userNameList = document.createElement('li')
+    userNameList.innerHTML= userName;
+    userNameContainer.appendChild(userNameList)
+}
 
 function nowPost(post) {
   fetch("https://jsonplaceholder.typicode.com/posts", {

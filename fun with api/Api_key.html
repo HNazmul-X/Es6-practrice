@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="city">
+    <br>
+    <button type="submit" id="submit-city">Submit</button>
+    <br>
+    <img src="" alt="" id="wather-icon">
+
+
+    <script>
+
+        var cityName = document.querySelector('#city');
+        const submit = document.querySelector('#submit-city');
+        const watherIcon = document.querySelector('#wather-icon');
+        submit.addEventListener('click', () => {
+            if (cityName.value !== "") {
+                getWeather()
+            } else {
+                alert(`please input a city name`)
+            }
+            console.log(cityName);
+        })
+        function getWeather() {
+            const api = `http://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=51e4d3e3937627b75b6c11cd07579773&units=metric`
+            fetch(api)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    watherIcon.src = ` http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+                    console.log(data.weather[0].icon)
+                })
+        }
+
+
+    </script>
+</body>
+
+</html>
